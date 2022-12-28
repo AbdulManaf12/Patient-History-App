@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.patienttracking">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PatientTracking">
+        <activity
+            android:name=".Patient_Details"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".Notes"
+            android:exported="false" />
+        <activity
+            android:name=".Welcome"
+            android:exported="false" />
+        <activity
+            android:name=".Reminders"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".Login"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".Splash_Screen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".utilities.Firebase_MessagingService"
+            android:exported="false"
+            android:stopWithTask="false"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Alarm -->
+        <receiver android:name=".utilities.AlarmReceiver" />
+    </application>
+
+</manifest>
